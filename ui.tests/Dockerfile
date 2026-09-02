@@ -12,20 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM cypress/included:13.14.1
+FROM mcr.microsoft.com/playwright:v1.49.1-jammy
 
-ENV APP_PATH /usr/src/app
-RUN apt -qqy update \
-    # Generic dependencies
-    && apt -qqy --no-install-recommends install \
-    curl \
-    build-essential
-# <<< End EAAS Convention \
-
-# Set Application Environment
+ENV APP_PATH=/usr/src/app
 WORKDIR ${APP_PATH}
 COPY ./test-module ./
 RUN npm install
-# no need to wait for selenium
 ENTRYPOINT ["bash","run.sh"]
-

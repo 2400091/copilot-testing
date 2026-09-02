@@ -1,13 +1,16 @@
 module.exports = {
-    "plugins": [
-        "cypress",
-        "chai-friendly"
+    root: true,
+    env: { node: true, es2022: true },
+    parserOptions: { ecmaVersion: 2022, sourceType: 'commonjs' },
+    extends: ['eslint:recommended'],
+    ignorePatterns: [
+        '.auth/**',
+        'node/**',
+        'node_modules/**',
+        'results/**',
+        'html-report/**',
+        'playwright-report/**',
+        'test-results/**'
     ],
-    "extends": [
-        "plugin:cypress/recommended"
-    ],
-    "rules": {
-        "no-unused-expressions": 0,
-        "chai-friendly/no-unused-expressions": 2
-    }
+    rules: {}
 }

@@ -1,0 +1,181 @@
+// About Us racing page styling
+
+#about-us-page {
+    background: $color-surface-strong;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    color: $color-foreground-light;
+    margin: 0 auto 3rem;
+    max-width: 84rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+
+    > .cmp-container > .aem-Grid {
+        display: grid;
+        gap: clamp(2rem, 4vw, 3rem);
+
+        &::before,
+        &::after {
+            display: none;
+        }
+
+        > .aem-GridColumn {
+            clear: none;
+            float: none;
+            margin-left: 0;
+            width: auto;
+        }
+    }
+
+    .cmp-text,
+    .cmp-text p,
+    .cmp-teaser__description,
+    .cmp-teaser__description p {
+        color: $color-foreground-light;
+    }
+
+    .cmp-text p:last-child,
+    .cmp-teaser__description p:last-child {
+        margin-bottom: 0;
+    }
+
+    .cmp-teaser__title,
+    .cmp-teaser__title-link,
+    .cmp-title__text {
+        color: $color-foreground-light;
+        text-decoration: none;
+    }
+
+    .cmp-teaser__pretitle {
+        color: $color-accent-red;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+    }
+
+    #about-us-hero {
+        .cmp-image {
+            background: $color-surface-panel;
+            border-radius: 1.25rem;
+            overflow: hidden;
+        }
+
+        img {
+            display: block;
+            height: clamp(20rem, 52vw, 36rem);
+            max-width: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    #section-we-stop,
+    #section-why-we-race,
+    #section-apr,
+    #section-oreca,
+    #section-globe {
+        .cmp-teaser {
+            align-items: stretch;
+            background: $color-surface-panel;
+            border-radius: 1.25rem;
+            border-top: 0.25rem solid $color-accent-red;
+            box-sizing: border-box;
+            display: flex;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            overflow: hidden;
+            padding: clamp(1.5rem, 3vw, 2.25rem);
+        }
+
+        .cmp-teaser__image,
+        .cmp-teaser__content {
+            min-width: 0;
+        }
+
+        .cmp-teaser__image {
+            flex: 1 1 46%;
+        }
+
+        .cmp-teaser__content {
+            display: flex;
+            flex: 1 1 54%;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        img {
+            border-radius: 0.85rem;
+            display: block;
+            height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    #section-why-we-race,
+    #section-oreca {
+        .cmp-teaser {
+            flex-direction: row-reverse;
+        }
+    }
+
+    #section-win-one {
+        > .cmp-container {
+            background: $color-surface-panel;
+            border-left: 0.25rem solid $color-accent-red;
+            border-radius: 1.25rem;
+            box-sizing: border-box;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        > .cmp-container > .aem-Grid {
+            display: grid;
+            gap: 1rem;
+
+            &::before,
+            &::after {
+                display: none;
+            }
+
+            > .aem-GridColumn {
+                clear: none;
+                float: none;
+                margin-left: 0;
+                width: auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    #about-us-page {
+        border-radius: 0;
+        padding: 1rem;
+
+        #section-we-stop,
+        #section-why-we-race,
+        #section-apr,
+        #section-oreca,
+        #section-globe {
+            .cmp-teaser {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .cmp-teaser__image {
+                flex-basis: auto;
+            }
+
+            img {
+                height: auto;
+                max-height: 20rem;
+            }
+        }
+
+        #about-us-hero img {
+            height: auto;
+            max-height: 24rem;
+        }
+    }
+}

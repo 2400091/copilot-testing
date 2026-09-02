@@ -1,14 +1,12 @@
-# Cypress Sample Test Module
+# Playwright UI Test Module
 
-This module documents the recommended structure for a Cypress test module and adheres to the Cloud Manager UI test module conventions,
+This module documents the recommended structure for a Playwright test module and adheres to the Cloud Manager UI test module conventions,
 ensuring that tests will be executed and reports generated are stored in the proper location.
 
 Some examples of basic tasks like logging in-out of AEM instances, taking screenshots, logging browser requests are included.
 
 
-
-
-- Install Cypress
+- Install dependencies
   ```shell
   npm install
   ```
@@ -16,60 +14,43 @@ Some examples of basic tasks like logging in-out of AEM instances, taking screen
 - Set environment variables required for test execution
   ```shell
   export AEM_AUTHOR_URL=https://author-p***-e***.adobeaemcloud.com
-  export AEM_AUTHOR_USERNAME=admin
+  export AEM_AUTHOR_USERNAME=<user>
   export AEM_AUTHOR_PASSWORD=***
   export AEM_PUBLISH_URL=https://publish-p***-e***.adobeaemcloud.com
-  export AEM_PUBLISH_USERNAME=admin
-  export AEM_PUBLISH_PASSWORD=***
   export REPORTS_PATH=target/
   ```
 
 - Run tests with one of the following commands
   ```shell
-  npm test              # Using default Cypress browser
-  npm run test-chrome   # Using Google Chrome browser
-  npm run test-firefox  # Using Firefox browser
+  npm test              # Run all configured Playwright projects
+  npm run test:chromium # Publish Chromium smoke
+  npm run test:author   # Authenticated author Chromium smoke
   ```
 
-- For debugging tests, you may run Cypress with the browser visible and Cypress console
+- For debugging tests, you may run Playwright with the browser visible
   ```shell
-  npx cypress run --headed --no-exit --browser chrome
+  npm run test:headed
   ```
 
 
 In order to be able to interpret the results of the tests correctly, a summary in JUnit format needs to be
-provided. To achieve this, both the `spec` and `mocha-junit-reporter` reporter are configured:
+provided. Playwright is configured to emit that report to the path expected by Cloud Manager:
 
 ```javascript
-reporter: 'cypress-multi-reporters',
-reporterOptions: {
-  configFile: 'reporter.config.js',
-},
-```
-
-```javascript
-const reportsPath = process.env.REPORTS_PATH || 'cypress/results'
-
-module.exports = {
-  "reporterEnabled": "spec, mocha-junit-reporter",
-  "mochaJunitReporterReporterOptions": {
-    "mochaFile": `${reportsPath}/output.xml`
-  },
-}
+const reportsPath = process.env.REPORTS_PATH || 'results'
 ```
 
 In order for the report to be found `reportPath` must be the value passed in the environment
-variable `REPORTS_PATH` as expected by EaaS. See [cypress.config.js](cypress.config.js)
+variable `REPORTS_PATH` as expected by EaaS. See [playwright.config.js](playwright.config.js).
 
-
-Cypress will automatically record videos for all test executions and create screenshots for test failures.
+Playwright will automatically retain videos for failures and create screenshots for test failures.
 
 Additional screenshots can be captured during the test execution using following command:
 
 ```javascript
-cy.screenshot()
+await expect(page).toHaveScreenshot()
 ```
 
-`$REPORTS_PATH/videos` will contain the videos.
+`$REPORTS_PATH/artifacts` will contain traces, screenshots, and videos.
 
-`$REPORTS_PATH/screenshots` will contain the images.
+`$REPORTS_PATH/results.xml` will contain the JUnit report.

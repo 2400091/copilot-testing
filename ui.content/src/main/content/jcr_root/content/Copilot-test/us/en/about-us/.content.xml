@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        pageTitle="About Us"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="About Us"
+        cq:contextHubPath="/etc/cloudsettings/default/contexthub"
+        cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:template="/conf/Copilot-test/settings/wcm/templates/page-content"
+        sling:resourceType="Copilot-test/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="Copilot-test/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="Copilot-test/components/container">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="Copilot-test/components/title"/>
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="Copilot-test/components/container"
+                    layout="responsiveGrid">
+                    <about-us-page
+                        id="about-us-page"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="Copilot-test/components/container"
+                        layout="responsiveGrid">
+                        <about-us-hero
+                            id="about-us-hero"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="Copilot-test/components/container"
+                            layout="responsiveGrid">
+                            <image
+                                alt="About Us"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="Copilot-test/components/image"
+                                fileReference="/content/dam/Copilot-test/about-us/D_ABOUTUS_Hero_Interior.jpg"/>
+                        </about-us-hero>
+                        <section-we-stop
+                            id="section-we-stop"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="Copilot-test/components/container"
+                            layout="responsiveGrid">
+                            <teaser
+                                alt="We Stop Breaches"
+                                jcr:description="&lt;p>CrowdStrike brings elite cyber defense and a challenger mindset to every engagement. This section emphasizes stopping breaches with speed, precision, and relentless focus.&lt;/p>"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="We Stop Breaches"
+                                sling:resourceType="Copilot-test/components/teaser"
+                                actionsEnabled="false"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/Copilot-test/about-us/we-stop-breaches.jpg"
+                                textIsRich="true"
+                                titleFromPage="false"/>
+                        </section-we-stop>
+                        <section-why-we-race
+                            id="section-why-we-race"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="Copilot-test/components/container"
+                            layout="responsiveGrid">
+                            <teaser
+                                alt="Why We Race"
+                                jcr:description="&lt;p>Racing reflects how the team performs under pressure: studying the data, making split-second decisions, and pushing for stronger results on every lap and every mission.&lt;/p>"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Why We Race"
+                                sling:resourceType="Copilot-test/components/teaser"
+                                actionsEnabled="false"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/Copilot-test/about-us/why-we-race.jpg"
+                                textIsRich="true"
+                                titleFromPage="false"/>
+                        </section-why-we-race>
+                        <section-apr
+                            id="section-apr"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="Copilot-test/components/container"
+                            layout="responsiveGrid">
+                            <teaser
+                                alt="CrowdStrike Racing by APR"
+                                jcr:description="&lt;p>CrowdStrike Racing by APR highlights a partnership built on preparation, trust, and execution. It connects the brand's performance culture to a real motorsport stage.&lt;/p>"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="CrowdStrike Racing by APR"
+                                sling:resourceType="Copilot-test/components/teaser"
+                                actionsEnabled="false"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/Copilot-test/about-us/IMSAROLEX26_01_23_26_111222_FH_8052.jpg"
+                                textIsRich="true"
+                                titleFromPage="false"/>
+                        </section-apr>
+                        <section-oreca
+                            id="section-oreca"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="Copilot-test/components/container"
+                            layout="responsiveGrid">
+                            <teaser
+                                alt="No. 4 CrowdStrike Oreca 07"
+                                jcr:description="&lt;p>The No. 4 CrowdStrike Oreca 07 represents endurance, teamwork, and disciplined innovation. Every stint reinforces the value of resilience in high-stakes environments.&lt;/p>"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="No. 4 CrowdStrike Oreca 07"
+                                sling:resourceType="Copilot-test/components/teaser"
+                                actionsEnabled="false"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/Copilot-test/about-us/IMSA_D24_26_01_25_001036_JP35529.jpg"
+                                textIsRich="true"
+                                titleFromPage="false"/>
+                        </section-oreca>
+                        <section-globe
+                            id="section-globe"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="Copilot-test/components/container"
+                            layout="responsiveGrid">
+                            <teaser
+                                alt="Protection Around the Globe"
+                                jcr:description="&lt;p>Protection Around the Globe speaks to the scale of CrowdStrike's mission. The same focus that drives the racing program supports customers wherever they operate.&lt;/p>"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Protection Around the Globe"
+                                sling:resourceType="Copilot-test/components/teaser"
+                                actionsEnabled="false"
+                                descriptionFromPage="false"
+                                fileReference="/content/dam/Copilot-test/about-us/Falcon-2.jpg"
+                                textIsRich="true"
+                                titleFromPage="false"/>
+                        </section-globe>
+                        <section-win-one
+                            id="section-win-one"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="Copilot-test/components/container"
+                            layout="responsiveGrid">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="We Win as One"
+                                sling:resourceType="Copilot-test/components/title"
+                                type="h2"/>
+                            <text
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="Copilot-test/components/text"
+                                text="&lt;p>Across security teams, partners, and the racing crew, success comes from moving together with purpose. We Win as One captures the shared commitment behind every result.&lt;/p>"
+                                textIsRich="true"/>
+                        </section-win-one>
+                    </about-us-page>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

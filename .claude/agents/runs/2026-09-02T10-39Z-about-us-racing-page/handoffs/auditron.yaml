@@ -1,0 +1,126 @@
+phase: test
+agent: auditron
+run_id: 2026-09-02T10-39Z-about-us-racing-page
+status: pass
+summary: "Pre-release gate refreshed to PASS: the successful Maven build remains valid, the content-package replace-mode fix is present, and the authenticated local runtime now renders the explicit About Us IDs and authored section content required by the page-scoped SCSS and Playwright selector contract."
+tracks_used:
+  - review
+  - build-gate
+  - tests
+review:
+  files_reviewed: 39
+  findings:
+    high: 0
+    medium: 0
+    low: 1
+  cross_file_consistency:
+    htl_data_sly_use_matches_model: not_applicable
+    bem_classes_match_scss: pass
+    policy_allowlist_components_exist: not_applicable
+    cq_allowedtemplates_resolves: pass
+    dialog_fields_match_valuemap: not_applicable
+    no_orphan_files: pass
+    composer_pages_resolve: pass
+    protected_jcr_properties_absent: pass
+    prefix_namespace_parity: pass
+    page_scoped_selector_contract: pass
+    playwright_runtime_path_complete: pass
+  upstream_findings_aggregated:
+    - agent: blockwright
+      count: 0
+    - agent: composer
+      count: 0
+  lint_results:
+    ui_frontend_eslint:
+      status: skipped
+      reason: "SCSS-only change; no standalone SCSS lint task is configured."
+    tsc:
+      status: skipped
+      reason: "No .ts files changed."
+    playwright_eslint:
+      status: upstream-pass
+      evidence: "handoffs/blockwright.yaml recorded `npx eslint .` exit_code: 0."
+  todos_introduced: 0
+  new_todos_without_ticket: 0
+  report: .claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/test/auditron/code-quality-report.md
+  blocking_findings: []
+build_gate:
+  command: "mvn -q clean install -PautoInstallSinglePackage"
+  result: BUILD_SUCCESS
+  mvn_exit_code: 0
+  all_zip_present: true
+  all_zip_path: all/target/copilot-test.all-1.0.0-SNAPSHOT.zip
+  all_zip_size_bytes: 2933424
+  surefire_all_pass: true
+  surefire_summary: "Tests run: 5, Failures: 0, Errors: 0, Skipped: 0"
+  local_sdk_deployed: true
+  local_sdk_author_url: http://localhost:4506
+  local_sdk_publish_url: http://localhost:4503
+tests:
+  layers:
+    unit:
+      pass: 5
+      fail: 0
+      skipped: 0
+    integration:
+      executed: false
+      pass: 0
+      fail: 0
+      skipped: 0
+      reason: "No changed Java or it.tests scope warranted the second Maven invocation."
+  coverage:
+    jacoco_configured: false
+    note: "No jacoco-maven-plugin configuration was found in the project pom.xml files inspected during this dispatch."
+  failing_tests: []
+  flaky_tests: []
+  functional_test_cases:
+    file: design/functional-test-cases.md
+    census_method: "Manual enumeration of unique TC-* IDs from the design artifact."
+    total_from_file: 10
+    total: 10
+    auditron_executed:
+      - id: TC-001
+        result: pass
+        evidence: "The page source sets the page-content template and the authenticated local page render returned HTTP 200."
+      - id: TC-002
+        result: pass
+        evidence: "Authenticated local HTML probe returned header and footer tags."
+      - id: TC-003
+        result: pass
+        evidence: "Authenticated local HTML probe returned one H1 with text `About Us`."
+      - id: TC-004
+        result: pass
+        evidence: "DAM subtree filter coverage remains present and all six seeded assets remain on disk."
+      - id: TC-005
+        result: pass
+        evidence: "Authored section fileReference values match the expected DAM assets recorded by Composer."
+      - id: TC-006
+        result: pass
+        evidence: "Authenticated local HTML probe showed `about-us-hero` before the editorial section IDs."
+      - id: TC-007
+        result: pass
+        evidence: "Authenticated local HTML probe showed the approved narrative order through `section-win-one`."
+      - id: TC-008
+        result: pass
+        evidence: "The closing section renders as copy-only content: runtime fragment returned no image and did return the expected title and body copy."
+      - id: TC-009
+        result: pass
+        evidence: "The stylesheet scopes the dark theme under `#about-us-page`, and runtime HTML now exposes `id=\"about-us-page\"` plus the related section IDs."
+      - id: TC-010
+        result: pass
+        evidence: "The mobile override selectors target IDs now present in the authenticated local runtime HTML."
+    deferred_to_sentinel: []
+    blocked: []
+  report: .claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/test/auditron/test-report.md
+  coverage_report: .claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/test/auditron/coverage.md
+mvn_invocations: 1
+hands_off_to_sentinel:
+  ui_test_scope_source: design/ui-test-scenarios.md
+  functional_test_scope_source: design/functional-test-cases.md
+  functional_tcs_deferred_to_sentinel: []
+  changed_files_inventory: .claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/test/auditron/changed_files.txt
+  local_sdk_url: http://localhost:4506
+  local_sdk_publish_url: http://localhost:4503
+  build_hash: ebeedf9ce86b6a2ec950ae236285c9af1044c9ab
+followups:
+  - "Optional cleanup: rename the retained Cypress metadata strings in `ui.tests/pom.xml` to Playwright-aligned values in a future non-blocking pass."

@@ -1,0 +1,107 @@
+phase: integrate
+agent: composer
+run_id: 2026-09-02T10-39Z-about-us-racing-page
+status: pass
+summary: "Remediation verification passed for Composer-owned authored content: the About Us seeded page now carries explicit container ID properties for the runtime selector contract, while approved template reuse, proxy reuse, section order, and DAM references remain intact."
+tracks_used:
+  - content-seeding
+headless:
+  in_scope: false
+  persisted_queries: []
+content_seeding:
+  page_path: /content/Copilot-test/us/en/about-us
+  template: /conf/Copilot-test/settings/wcm/templates/page-content
+  content_root: /content/Copilot-test/us/en/about-us/jcr:content/root/container/container/about-us-page
+  runtime_hook_contract:
+    hook_type: authored-html-id
+    owner_component: Copilot-test/components/container
+    owner_component_supertype: core/wcm/components/container/v1/container
+    rationale: "The remediation moved from assumed wrapper classes to the Core Container's standard authored `id` property so Blockwright's page-scoped SCSS and Playwright selectors target runtime-supported hooks."
+    authored_ids:
+      page_root: about-us-page
+      hero: about-us-hero
+      sections:
+        - section-we-stop
+        - section-why-we-race
+        - section-apr
+        - section-oreca
+        - section-globe
+        - section-win-one
+    blockwright_dependents:
+      scss: ui.frontend/src/main/webpack/site/styles/about-us-page.scss
+      playwright:
+        - ui.tests/test-module/tests/helpers/aboutUs.js
+        - ui.tests/test-module/tests/ui-001-page-structure.spec.js
+        - ui.tests/test-module/tests/ui-002-desktop-alternating-layout.spec.js
+        - ui.tests/test-module/tests/ui-003-mobile-stack.spec.js
+        - ui.tests/test-module/tests/ui-004-dam-images.spec.js
+        - ui.tests/test-module/tests/ui-005-scoped-theme.spec.js
+  approved_section_order:
+    - about-us-hero
+    - section-we-stop
+    - section-why-we-race
+    - section-apr
+    - section-oreca
+    - section-globe
+    - section-win-one
+  heading_inventory_verbatim:
+    - About Us
+    - We Stop Breaches
+    - Why We Race
+    - CrowdStrike Racing by APR
+    - No. 4 CrowdStrike Oreca 07
+    - Protection Around the Globe
+    - We Win as One
+  approved_component_proxies:
+    - Copilot-test/components/container
+    - Copilot-test/components/image
+    - Copilot-test/components/teaser
+    - Copilot-test/components/title
+    - Copilot-test/components/text
+  dam_assets_seeded:
+    - path: /content/dam/Copilot-test/about-us/D_ABOUTUS_Hero_Interior.jpg
+      usage: hero
+    - path: /content/dam/Copilot-test/about-us/we-stop-breaches.jpg
+      usage: section-we-stop
+    - path: /content/dam/Copilot-test/about-us/why-we-race.jpg
+      usage: section-why-we-race
+    - path: /content/dam/Copilot-test/about-us/IMSAROLEX26_01_23_26_111222_FH_8052.jpg
+      usage: section-apr
+    - path: /content/dam/Copilot-test/about-us/IMSA_D24_26_01_25_001036_JP35529.jpg
+      usage: section-oreca
+    - path: /content/dam/Copilot-test/about-us/Falcon-2.jpg
+      usage: section-globe
+  fixture_manifest: not-required-all-local-assets-present
+  smoke_render_request:
+    target_urls:
+      - /content/Copilot-test/us/en/about-us.html
+    expected_ids:
+      - about-us-page
+      - about-us-hero
+      - section-we-stop
+      - section-why-we-race
+      - section-apr
+      - section-oreca
+      - section-globe
+      - section-win-one
+    handed_to: pilot
+verification:
+  template_resolved: true
+  component_resource_types_resolved: true
+  dam_references_resolved: true
+  approved_section_order_preserved: true
+  approved_proxy_reuse_preserved: true
+  no_headless_track: true
+  maven_invoked: false
+  repository_corrections_required: false
+  local_runtime_probe:
+    attempted: true
+    author_url: http://localhost:4506/content/Copilot-test/us/en/about-us.html
+    authenticated_http_200: true
+    authored_id_attributes_observed: false
+    interpretation: "The checked-in authoring source is remediated, but the currently running local author instance still appears to serve pre-remediation markup. Auditron's rerun should rebuild/redeploy before treating runtime HTML as the final oracle."
+report: .claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/integrate/composer/content-seeding-report.md
+notes:
+  - No Composer-owned content or package correction was required beyond refreshing the run artifacts for the explicit-ID contract.
+  - The page remains on the existing `page-content` template with existing proxy components only.
+  - No Content Fragments, GraphQL, Java, dialog, or stylesheet work was introduced by Composer in this remediation pass.

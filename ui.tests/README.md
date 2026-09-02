@@ -1,7 +1,7 @@
-UI Testing module (Cypress) for your AEM application
+UI Testing module (Playwright) for your AEM application
 ===
 
-Sample structure for [Cypress](https://www.cypress.io) UI test module which conforms to
+Sample structure for [Playwright](https://playwright.dev) UI test module which conforms to
 AEM Cloud Manager quality gate UI test conventions.
 
 
@@ -21,22 +21,14 @@ section of the documentation.
 - `assembly-ui-test-docker-context.xml` Packages test project for AEMaaCS
 
 
-Sample dockerfile is based on the `cypress/included` [image](https://hub.docker.com/r/cypress/included), which provides all the dependencies and the binaries
-to run cypress tests.
-
-
->When running several Cypress instances in parallel, the spawning of multiple X11 servers at once can cause problems for some of them. In this case, you can separately start a single X11 server and pass the server's address to each Cypress instance using DISPLAY variable.
-
-The setup described in [the documentation](https://docs.cypress.io/guides/continuous-integration/introduction#In-Docker) 
-is implemented in `run.sh` as is used as entrypoint to the container.
-
-
+Sample dockerfile is based on the `mcr.microsoft.com/playwright` image, which provides the required
+browsers and dependencies to run Playwright tests headlessly in Cloud Manager.
 
 Refer to [test-module/README.md](test-module/README.md).
 
 
 The image built from the Dockerfile can be used to execute tests locally against an AEM environment. The `ui-tests-docker-execution`
-maven profile will start the docker-compose setup starting Cypress and the test module, executing the tests against
+maven profile will start the docker-compose setup starting the test module, executing the tests against
 the AEM instance defined via environment variables. The test results will be stored in the `./target/reports` directory.
 
 The following environment variables (AEM UI test convention) can be passed
@@ -49,7 +41,7 @@ The following environment variables (AEM UI test convention) can be passed
 | AEM_PUBLISH_URL      | http://localhost:4503 |
 | AEM_PUBLISH_USERNAME | `admin`               |
 | AEM_PUBLISH_PASSWORD | `admin`               |
-| REPORTS_PATH         | `cypress/results`     |
+| REPORTS_PATH         | `results`             |
 
 1. Build the Docker UI test image with below command
    ```
@@ -57,5 +49,5 @@ The following environment variables (AEM UI test convention) can be passed
    ```
 2. Run the test
    ```
-   mvn verify -Pui-tests-docker-execution -DAEM_AUTHOR_URL=https://author.my-deployment.com -DAEM_AUTHOR_USERNAME=<PASS> -DAEM_AUTHOR_PASSWORD=<PASS>
+   mvn verify -Pui-tests-docker-execution -DAEM_AUTHOR_URL=https://author.my-deployment.com -DAEM_AUTHOR_USERNAME=<USER> -DAEM_AUTHOR_PASSWORD=<PASS> -DAEM_PUBLISH_URL=https://publish.my-deployment.com
    ```

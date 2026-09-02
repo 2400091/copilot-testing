@@ -1,0 +1,88 @@
+intake_source:
+  run_id: "2026-09-02T10-39Z-about-us-racing-page"
+  reference_url:
+    url: "https://crowdstrikeracing.com/about-us/"
+    role: "content-source-of-truth"
+    access_status: "blocked from direct fetch in this environment"
+  local_asset_folder:
+    path: "C:\\Users\\2400091\\Downloads\\Picflow Images Sep 2"
+    role: "asset-source-of-truth"
+
+project:
+  name: "Copilot-test"
+  package: "com.copilottest.aem"
+  group: "CopilotTest"
+  workspace_root: "C:\\aemproject\\aem-sites-adlc-2.0\\copilot-test"
+
+goals:
+  - id: "G-001"
+    statement: "Create a headful AEM Sites About Us page based on the CrowdStrike Racing reference."
+  - id: "G-002"
+    statement: "Reuse the existing page template, content root, page component, and Core Component proxies where feasible."
+  - id: "G-003"
+    statement: "Package the provided reference assets into DAM and author a demo-ready page."
+  - id: "G-004"
+    statement: "Keep the implementation traditional and server-rendered; no headless architecture."
+
+user_stories:
+  - id: "US-001"
+    as: "Site visitor"
+    i_want: "to understand the About Us racing story through a polished marketing page"
+    so_that: "I can quickly grasp the brand mission and racing partnership"
+  - id: "US-002"
+    as: "Content author"
+    i_want: "to manage the page from AEM using normal page/content authoring"
+    so_that: "future copy and image updates stay manageable"
+
+functional_requirements:
+  - id: "FR-001"
+    statement: "Create a new page at /content/Copilot-test/us/en/about-us using the existing page-content template."
+    acceptance_criteria:
+      - "The page renders with the existing page component and site header/footer experience fragments."
+      - "The page title is About Us."
+  - id: "FR-002"
+    statement: "Seed the supplied images into DAM under a page-specific folder."
+    acceptance_criteria:
+      - "Each provided image is packaged into the repository content for deployment."
+      - "The page body references those DAM assets."
+  - id: "FR-003"
+    statement: "Implement the page body with sections that reflect the confirmed reference structure."
+    acceptance_criteria:
+      - "The page includes a hero image plus sections for We Stop Breaches, Why We Race, CrowdStrike Racing by APR, No. 4 CrowdStrike Oreca 07, Protection Around the Globe, and We Win as One."
+      - "Sections remain server-rendered and editable as repository-authored content."
+  - id: "FR-004"
+    statement: "Apply page-scoped styling to approximate the premium dark racing visual language."
+    acceptance_criteria:
+      - "The page uses a dark theme, strong heading treatment, spacing rhythm, and responsive behavior."
+      - "Global site chrome is not unintentionally restyled."
+
+non_functional_requirements:
+  - id: "NFR-001"
+    statement: "Responsive layout"
+    owner: "designforge/blockwright"
+  - id: "NFR-002"
+    statement: "AEMaaCS-safe reuse of existing template/component patterns"
+    owner: "strategist/blockwright"
+  - id: "NFR-003"
+    statement: "Demo readiness with repository-packaged assets/content"
+    owner: "composer"
+
+routing:
+  required_specialists:
+    - "designforge"
+    - "blockwright"
+    - "composer"
+    - "auditron"
+    - "pilot"
+    - "sentinel"
+  conditional_specialists:
+    - "configsmith"
+    - "bridgesmith"
+
+risks:
+  - id: "R-001"
+    statement: "Exact live reference copy cannot be mechanically extracted from this environment."
+    mitigation: "Use confirmed section headings and provided assets; preserve a content inventory/design step before implementation."
+  - id: "R-002"
+    statement: "Falcon-2.jpg is small relative to hero/feature image needs."
+    mitigation: "Use Falcon-2.jpg only as a support/accent image."
