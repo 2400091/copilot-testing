@@ -112,12 +112,12 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!-- <dependency>
+        <dependency>
             <groupId>com.copilottest</groupId>
             <artifactId>copilot-test.ui.frontend</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
-        </dependency> -->
+        </dependency>
 
 
         <dependency>

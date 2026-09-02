@@ -119,8 +119,8 @@
           <version>${frontend-maven-plugin.version}</version>
           <configuration>
             <nodeVersion>v16.17.0</nodeVersion>
-            <!-- <npmVersion>8.15.0</npmVersion> -->
-            <skip>true</skip>
+            <npmVersion>8.15.0</npmVersion>
+            <!-- <skip>true</skip> -->
           </configuration>
           <executions>
             <execution>
@@ -128,9 +128,9 @@
               <goals>
                 <goal>install-node-and-npm</goal>
               </goals>
-              <configuration>
+              <!-- <configuration>
                 <skip>true</skip>
-              </configuration>
+              </configuration> -->
             </execution>
             <execution>
               <id>npm ci</id>
