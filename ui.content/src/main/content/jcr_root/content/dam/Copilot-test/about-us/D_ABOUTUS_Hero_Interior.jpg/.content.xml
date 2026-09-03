@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        jcr:lastModified="{Date}2026-09-02T11:20:00.000Z"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:sha1="7977df495ad06051c72095e8921a3fdea4fe987d"
+            dam:size="{Long}501885"
+            dc:format="image/jpeg"
+            dc:title="About Us Hero"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}744"
+            tiff:ImageWidth="{Long}2048"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

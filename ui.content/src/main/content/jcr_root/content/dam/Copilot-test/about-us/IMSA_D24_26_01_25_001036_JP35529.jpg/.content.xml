@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        jcr:lastModified="{Date}2026-09-02T11:20:00.000Z"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:sha1="350587b0915606476441d20faaed00eedaded7f2"
+            dam:size="{Long}564386"
+            dc:format="image/jpeg"
+            dc:title="No. 4 CrowdStrike Oreca 07"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}1365"
+            tiff:ImageWidth="{Long}2048"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

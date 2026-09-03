@@ -2,10 +2,12 @@
 <workspaceFilter version="1.0">
     <filter root="/conf/Copilot-test" mode="merge"/>
     <filter root="/content/Copilot-test" mode="merge"/>
+    <filter root="/content/Copilot-test/us/en/about-us" mode="replace"/>
     <filter root="/content/dam/Copilot-test" mode="merge">
         <exclude pattern="/content/dam/Copilot-test(/.*)?"/>
         <include pattern="/content/dam/Copilot-test/jcr:content(/.*)?"/>
     </filter>
+    <filter root="/content/dam/Copilot-test/about-us" mode="merge"/>
     <filter root="/content/dam/Copilot-test/asset.jpg" mode="merge"/>
     <filter root="/content/experience-fragments/Copilot-test" mode="merge"/>
 </workspaceFilter>

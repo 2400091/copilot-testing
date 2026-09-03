@@ -1,0 +1,102 @@
+phase: implement
+agent: blockwright
+run_id: 2026-09-02T10-39Z-about-us-racing-page
+status: pass
+summary: "Verified the AQ-001 remediation: Blockwright-owned page styling and Playwright selectors now use runtime-valid explicit HTML IDs rather than non-rendering wrapper classes; no further code correction was required in the owned frontend/ui.tests scope."
+tracks_used:
+  - ui-tests
+components_created: []
+components_extended: []
+templates: []
+services: []
+workflows: []
+migration:
+  pattern_addressed: none
+  files_changed: []
+  applied_in_place: false
+page_reuse:
+  template_reused: /conf/Copilot-test/settings/wcm/templates/page-content
+  component_proxies_reused:
+    - Copilot-test/components/container
+    - Copilot-test/components/image
+    - Copilot-test/components/teaser
+    - Copilot-test/components/title
+    - Copilot-test/components/text
+  template_or_policy_changes_required: false
+selector_contract:
+  basis: explicit-html-ids
+  wrapper_class_contract_removed: true
+  verified_ids:
+    - about-us-page
+    - about-us-hero
+    - section-we-stop
+    - section-why-we-race
+    - section-apr
+    - section-oreca
+    - section-globe
+    - section-win-one
+  owned_files_verified:
+    - ui.frontend/src/main/webpack/site/styles/about-us-page.scss
+    - ui.tests/test-module/tests/helpers/aboutUs.js
+    - ui.tests/test-module/tests/ui-001-page-structure.spec.js
+    - ui.tests/test-module/tests/ui-002-desktop-alternating-layout.spec.js
+    - ui.tests/test-module/tests/ui-003-mobile-stack.spec.js
+    - ui.tests/test-module/tests/ui-004-dam-images.spec.js
+    - ui.tests/test-module/tests/ui-005-scoped-theme.spec.js
+  repository_corrections_required: []
+content_dependency:
+  owner: composer
+  required_for_runtime_validity: true
+  verified_authored_ids_present: true
+  evidence_file: ui.content/src/main/content/jcr_root/content/Copilot-test/us/en/about-us/.content.xml
+  note: "Composer-owned authored content IDs are the dependency that makes the Blockwright selector contract valid at runtime; this pass verified but did not edit that seeded content."
+repository_changes:
+  code_files_changed: []
+  artifact_files_refreshed:
+    - .claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/implement/blockwright/ui-test-harness.md
+    - .claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/handoffs/blockwright.yaml
+ui_tests:
+  harness_state_on_entry: playwright-present
+  playwright_version: "1.49.1"
+  cypress_fully_removed: true
+  package_lock_regenerated: false
+  package_lock_reason: "No package manifest change was required on this remediation pass."
+  pom_and_assembly_unmodified: true
+  specs_authored:
+    - { scenario_id: UI-001, spec: ui.tests/test-module/tests/ui-001-page-structure.spec.js }
+    - { scenario_id: UI-002, spec: ui.tests/test-module/tests/ui-002-desktop-alternating-layout.spec.js }
+    - { scenario_id: UI-003, spec: ui.tests/test-module/tests/ui-003-mobile-stack.spec.js }
+    - { scenario_id: UI-004, spec: ui.tests/test-module/tests/ui-004-dam-images.spec.js }
+    - { scenario_id: UI-005, spec: ui.tests/test-module/tests/ui-005-scoped-theme.spec.js }
+  scenario_coverage:
+    scenarios_total: 5
+    scenarios_with_spec: 5
+    unmapped: []
+  discovery:
+    command: "npx playwright test --list"
+    exit_code: 0
+    specs_discovered: 5
+    tests_discovered: 25
+  npm_install:
+    executed: false
+    reason: "Skipped because node_modules was already present and no package/lockfile integrity update was needed for the selector remediation."
+  eslint:
+    command: "npx eslint ."
+    exit_code: 0
+  eslint_clean: true
+  tier_parameterization:
+    author_env_var: AEM_AUTHOR_URL
+    publish_env_var: AEM_PUBLISH_URL
+    author_credentials_env_vars:
+      - AEM_AUTHOR_USERNAME
+      - AEM_AUTHOR_PASSWORD
+    hardcoded_hosts: false
+    hardcoded_credentials: false
+  executed: false
+  report: .claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/implement/blockwright/ui-test-harness.md
+best_practice_fixes_applied: []
+service_user_requests: []
+followups:
+  - "Auditron should rerun against the explicit HTML ID selector contract and Composer-authored runtime IDs."
+  - "Sentinel remains the only stage that may report browser execution results."
+build_result: deferred-to-build-gate

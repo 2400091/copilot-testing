@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        cq:conf="/conf/Copilot-test"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="About Us">
+        <folderThumbnail/>
+    </jcr:content>
+    <D_ABOUTUS_Hero_Interior.jpg/>
+    <we-stop-breaches.jpg/>
+    <why-we-race.jpg/>
+    <IMSAROLEX26_01_23_26_111222_FH_8052.jpg/>
+    <IMSA_D24_26_01_25_001036_JP35529.jpg/>
+    <Falcon-2.jpg/>
+</jcr:root>

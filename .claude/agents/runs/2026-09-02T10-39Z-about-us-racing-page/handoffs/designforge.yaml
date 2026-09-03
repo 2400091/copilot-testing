@@ -1,0 +1,27 @@
+agent: "designforge"
+run_id: "2026-09-02T10-39Z-about-us-racing-page"
+status: "pass"
+summary: "Produced the implementation-ready design pack for a headful About Us page using the existing page/template infrastructure and existing Core Component proxies only."
+artifacts:
+  component_specifications: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/component-specifications.md"
+  dialog_specifications: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/dialog-specifications.md"
+  template_design: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/template-design.md"
+  policy_mapping: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/policy-mapping.md"
+  authoring_guidelines: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/authoring-guidelines.md"
+  functional_test_cases: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/functional-test-cases.md"
+  ui_test_scenarios: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/ui-test-scenarios.md"
+  reference_assets: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/reference-assets.md"
+  source_content_inventory: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/source-content-inventory.md"
+  authoring_test_cases: ".claude/agents/runs/2026-09-02T10-39Z-about-us-racing-page/design/authoring-test-cases.md"
+implementation_recommendation:
+  primary_specialists:
+    - "blockwright"
+    - "composer"
+  conditional_specialists: []
+dialog_summary:
+  reused_components:
+    - "image"
+    - "teaser"
+    - "title"
+    - "text"
+  layout_control: "Handled by named containers / component node names plus page-scoped CSS."
